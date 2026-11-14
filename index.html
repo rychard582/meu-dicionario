@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Dicionário de Dados do Sistema de Gestão Operacional e Vendas da Ikesaki Cosméticos.">
+<meta name="theme-color" content="#102a43">
+<title>Dicionário de Dados | Ikesaki Cosméticos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="menuBtn" class="icon-btn" aria-label="Abrir menu">&#9776;</button>
+  <span class="logo">IK</span>
+  <div class="ttl"><span>Ikesaki Cosméticos</span><strong>Sistema de Gestão Operacional e Vendas</strong></div>
+  <span class="pill">Versão 4.0</span>
+  <button id="themeBtn" class="btn" type="button">Tema escuro</button>
+</header>
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="Navegação">
+    <h2>Navegação</h2>
+    <ul class="secs">
+      <li><a href="#inicio">Estrutura do banco</a></li>
+      <li><a href="#identificacao">01 · Identificação</a></li>
+      <li><a href="#governanca">02 · Cultura e governança</a></li>
+      <li><a href="#controle">03 · Painel de controle</a></li>
+      <li><a href="#qualidade">04 · Pontos de atenção</a></li>
+      <li><a href="#dicionario">05 · Dicionário por tabela</a></li>
+      <li><a href="#privacidade">06 · Privacidade</a></li>
+    </ul>
+    <h2>Tabelas (21)</h2>
+    <ul id="tlist"></ul>
+  </aside>
+  <main>
+    <section id="inicio" class="hero">
+      <p class="eyebrow">Governança de dados · DAMA-DMBOK · COBIT</p>
+      <h1>Dicionário de Dados</h1>
+      <p>Referência de metadados do modelo físico <code>ikesaki_gestao</code>, com atributos, tipos, constraints, classificação de privacidade, linhagem e controle de acesso.</p>
+      <p class="tags"><span>MySQL 8.0.16+</span><span>Grupo 6</span><span>Fonte: banco_conforme_der.sql</span></p>
+      <div class="stats">
+        <div><b>21</b><span>Tabelas</span></div>
+        <div><b>123</b><span>Atributos</span></div>
+        <div><b>26</b><span>Definições de FK</span></div>
+      </div>
+    </section>
+
+    <section id="identificacao" class="card">
+      <p class="eyebrow">01 · Identificação</p>
+      <h2>Identificação do projeto de modelagem</h2>
+      <dl class="info">
+        <div><dt>Projeto</dt><dd>Sistema de Gestão Operacional e Vendas</dd></div>
+        <div><dt>Empresa / Cliente</dt><dd>Ikesaki Cosméticos</dd></div>
+        <div><dt>Instituição</dt><dd>Universidade Cidade de São Paulo</dd></div>
+        <div><dt>Disciplina</dt><dd>Modelagem de Banco de Dados</dd></div>
+        <div><dt>Orientador</dt><dd>Diego Marques de Carvalho</dd></div>
+        <div><dt>Tecnologia</dt><dd><b>MySQL</b></dd></div>
+        <div><dt>Equipe</dt><dd>Grupo 6</dd></div>
+        <div><dt>Data de entrega no documento</dt><dd>12/11/2026</dd></div>
+      </dl>
+      <h3>Escopo do sistema</h3>
+      <p>Banco de dados de gestão operacional e vendas da Ikesaki Cosméticos, rede varejista de cosméticos, perfumaria e produtos profissionais de beleza. O modelo centraliza clientes, endereços, produtos, estoque, pedidos, expedição, entrega, rastreamento, logística reversa, estornos, controle de acesso (RBAC), auditoria e histórico de preços, reduzindo falhas de cadastro, dificuldades de rastreamento e divergências de estoque.</p>
+      <h3>Responsáveis e papéis de governança</h3>
+      <p class="muted">Os documentos identificam os integrantes do Grupo 6, mas não formalizam quem atua como Data Owner ou Data Steward. Essas atribuições devem ser aprovadas pela equipe e pelo orientador antes da publicação institucional.</p>
+      <ul class="resp"><li><b>Pietro Emanuel Girão</b> &mdash; Líder do grupo</li><li><b>Pedro Martins Rodrigues Alves</b> &mdash; Analista de requisitos</li><li>Aleksandro Soares Oliveira &mdash; Integrante do Grupo 6</li><li>André Ricardo Santos Marques &mdash; Integrante do Grupo 6</li><li>Gabriella Silva Lopes &mdash; Integrante do Grupo 6</li><li>José Carlos Mendes da Fonseca &mdash; Integrante do Grupo 6</li><li>Karoline da Cruz Barbosa &mdash; Integrante do Grupo 6</li><li>Kauani Cristina Silva Rolim &mdash; Integrante do Grupo 6</li><li>Lucca Esperança Santander &mdash; Integrante do Grupo 6</li><li>Leyla Giselle Cruz Canqui &mdash; Integrante do Grupo 6</li><li>Matheus Mingatos Silva &mdash; Integrante do Grupo 6</li><li>Mirelly Rodrigues dos Santos &mdash; Integrante do Grupo 6</li><li>Mohamed Osman &mdash; Integrante do Grupo 6</li><li>Rychard Vinicius Ferreira da Silva &mdash; Integrante do Grupo 6</li><li>Ysmaell Anthony Carvalho dos Santos &mdash; Integrante do Grupo 6</li></ul>
+    </section>
+
+    <section id="governanca" class="card">
+      <p class="eyebrow">02 · Cultura e governança</p>
+      <h2>Data Literacy e valor estratégico</h2>
+      <p>Para uma rede com mais de 20.000 SKUs e cerca de 15.000 transações, um vocabulário comum sobre cada atributo reduz ambiguidade entre atendimento, estoque, expedição e gestão.</p>
+      <div class="grid2">
+        <div class="mini"><span class="eyebrow">DAMA-DMBOK</span><h3>Metadados e qualidade</h3><p>Padronização de definições, atributos, domínios, linhagem, qualidade e responsabilidades.</p></div>
+        <div class="mini"><span class="eyebrow">COBIT</span><h3>Controles e responsabilização</h3><p>Visibilidade de riscos, direitos de acesso, controles, monitoramento e aprovação.</p></div>
+      </div>
+    </section>
+
+    <section id="controle" class="card">
+      <p class="eyebrow">03 · Consulta</p>
+      <h2>Painel de controle do dicionário</h2>
+      <div class="actions">
+        <a class="btn primary" href="docs/Especificacao_Requisitos_Regras_Negocio_BD.pdf" download>Baixar especificação de requisitos (PDF)</a>
+        <button class="btn" id="openDer" type="button">Abrir DER</button>
+      </div>
+      <input id="search" type="search" placeholder="Pesquisar tabela ou coluna..." aria-label="Pesquisar tabelas e colunas">
+      <p id="count" class="muted" aria-live="polite"></p>
+    </section>
+
+    <section id="qualidade" class="card">
+      <p class="eyebrow">04 · Qualidade do modelo</p>
+      <h2>Pontos de atenção identificados</h2>
+      <ul class="att">
+        <li>Classificação de privacidade, linhagem e RBAC são propostas iniciais baseadas nos requisitos; precisam de validação pelos responsáveis do negócio.</li>
+        <li>Campos de status (<code>forma_pagamento</code>, <code>status_expedicao</code>, <code>status_entrega</code>, <code>devolucao.status</code>, <code>estorno.status</code>, <code>rastreamento.status</code>, <code>telefone_cliente.tipo</code>) são texto livre, sem CHECK/ENUM; a validação fica a cargo da aplicação.</li>
+        <li>A exceção de desconto acima de 30% (RN07) depende de aprovação do Gerente e é validada pela aplicação, pois o CHECK não registra quem autorizou.</li>
+        <li>O DDL bloqueia exclusão física por trigger (PR03, PR05, PR07); o prazo mínimo de retenção deve ser garantido por política de backup e arquivamento.</li>
+        <li>Os triggers dependem das variáveis de sessão <code>@id_usuario</code>, <code>@justificativa</code> e <code>@endereco_ip</code>, definidas pela aplicação.</li>
+      </ul>
+    </section>
+
+    <section id="dicionario">
+      <p class="eyebrow pad">05 · Metadados físicos</p>
+      <h2 class="pad">Dicionário de Dados por tabela</h2>
+      <p class="muted pad">Tipos e constraints são extraídos do DDL. Privacidade, linhagem e RBAC são propostas iniciais baseadas nos requisitos.</p>
+      <div id="dict"></div>
+      <p id="empty" class="card" hidden>Nenhuma tabela ou coluna corresponde ao filtro.</p>
+    </section>
+
+    <section id="privacidade" class="card">
+      <p class="eyebrow">06 · Privacidade</p>
+      <h2>Legenda de classificação LGPD / GDPR</h2>
+      <p><span class="badge dps">[DPS]</span> Dado pessoal sensível, conforme categorias legais aplicáveis.</p>
+      <p><span class="badge dp">[DP]</span> Dado pessoal ou dado operacional associado a titular identificável.</p>
+      <p><span class="badge na">[N/A]</span> Não identificado como dado pessoal no contexto analisado.</p>
+      <p class="muted">Nenhum atributo foi classificado como DPS com base nos campos do DDL. Isso não substitui avaliação jurídica ou validação pelo Encarregado de Dados (DPO).</p>
+    </section>
+    <footer><b>Ikesaki Cosméticos · Dicionário de Dados</b><br>Artefato acadêmico, Grupo 6, 2026. Validar antes de uso operacional.</footer>
+  </main>
+</div>
+<div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-label="Diagrama Entidade-Relacionamento">
+  <div class="mtools">
+    <button class="btn" id="zin" type="button">Zoom +</button>
+    <button class="btn" id="zout" type="button">Zoom &minus;</button>
+    <button class="btn" id="zreset" type="button">Reset</button>
+    <button class="btn danger" id="closeDer" type="button">Fechar</button>
+  </div>
+  <div id="stage" class="stage"><img id="derImg" src="assets/der.png" alt="Diagrama Entidade-Relacionamento do sistema" draggable="false"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
